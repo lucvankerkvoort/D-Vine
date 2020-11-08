@@ -1,5 +1,8 @@
 .specification {
+  position: relative;
   margin: 25px;
+  min-height: fit-content;
+  // border: 2px solid black;
   // height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,9 +22,6 @@
     text-align: center;
     align-items: center;
     margin-bottom: 20px;
-    h1 {
-      font-family: "Kalam";
-    }
   }
   .product-spec {
     display: flex;
@@ -29,6 +29,7 @@
     width: 100%;
     margin: auto;
     padding: 40px;
+    min-height: fit-content;
     // box-shadow: 10px 10px 25px gray;
     .picture-spec {
       display: flex;
@@ -38,11 +39,12 @@
       // border: 2px solid black;
     }
     .detail-spec {
-      // border:2[]
+      // border: 2px solid black;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      max-width: max-content;
       .send {
         font-size: 2em;
         text-align: center;
@@ -101,7 +103,8 @@
     flex-direction: column;
     .back-to-shopping {
       position: absolute;
-      left: 50px;
+      left: 20px;
+      top: 0px;
       // top: 130px;
     }
     .product-spec {
@@ -109,7 +112,6 @@
       flex-direction: row;
       width: 80%;
       margin: auto;
-      padding: 40px;
       // box-shadow: 10px 10px 25px gray;
       .picture-spec {
         display: flex;
@@ -120,9 +122,21 @@
       .detail-spec {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
-        width: 40%;
+        max-width: max-content;
+        border-radius: 5px;
+
+        table {
+          margin: 50px 0px;
+          // border: 2px solid black;
+          th,
+          td {
+            width: 250px;
+            // border: 2px solid black;
+          }
+        }
+
         a {
           background: rgba(2, 0, 251, 0.7);
           text-decoration: none;

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { HashRouter, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar/navbar";
 import Home from "./Pages/home";
+import images from "./Images/images";
 import Collection from "./Pages/collection";
 import Contact from "./Pages/contact";
 import Shop from "./Pages/shop";
@@ -28,6 +29,57 @@ const App = () => {
         setCollections(arr);
       });
   }, []);
+
+  const fakeData = [
+    {
+      images: images.wine_placeholder,
+      type: "red",
+      title: "Red",
+      price: "15",
+      description: "Beautiful Red Wine",
+      star: 4.0,
+    },
+    {
+      title: "Red",
+      type: "red",
+      images: images.wine_placeholder,
+      price: "15",
+      description: "Beautiful Red Wine",
+      star: 3.7,
+    },
+    {
+      title: "White",
+      type: "white",
+      images: images.wine_placeholder,
+      price: "45",
+      description: "nice white wine",
+      star: 2.5,
+    },
+    {
+      title: "White",
+      type: "white",
+      images: images.wine_placeholder,
+      price: "45",
+      description: "nice white wine",
+      star: 2.5,
+    },
+    {
+      title: "White",
+      type: "white",
+      images: images.wine_placeholder,
+      price: "45",
+      description: "nice white wine",
+      star: 2.5,
+    },
+    {
+      title: "White",
+      type: "white",
+      images: images.wine_placeholder,
+      price: "45",
+      description: "nice white wine",
+      star: 2.5,
+    },
+  ];
   return (
     <div className="App">
       <HashRouter basename="/">
@@ -42,7 +94,10 @@ const App = () => {
           render={(props) => <Collection {...props} />}
         />
         <Route path="/contact" component={Contact} />
-        <Route path="/shop" render={(props) => <Shop {...props} />} />
+        <Route
+          path="/shop/:type"
+          render={(props) => <Shop fakeData={fakeData} {...props} />}
+        />
         <Route path="/spec" render={(props) => <Specification {...props} />} />
         <Footer />
       </HashRouter>

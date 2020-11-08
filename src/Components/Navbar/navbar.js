@@ -3,12 +3,20 @@ import { Link } from "react-router-dom";
 import image from "../../Images/images";
 const Navbar = () => {
   const [search, setSearch] = useState("");
+
+  // const logo = () => {
+  //   setTimeout(
+  //     () => <img src={image.logoGif} alt="..." height="150px" />,
+  //     5000
+  //   );
+  //   <img src={image.Logo} alt="..." height="150px" />;
+  // };
   return (
     <div className="navbar">
       <div className="navbar-header">
         <div className="logo">
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            <img src={image.logoGif} alt="logo" height="150px" />
+            <img src={image.Logo} alt="logo" height="150px" />
           </Link>
         </div>
         <div>
@@ -27,26 +35,23 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-items">
-        <Link
-          to="/shop:reds"
-          style={{ textDecoration: "none", color: "black" }}
-        >
+        <Link to="/shop/red" style={{ textDecoration: "none", color: "black" }}>
           <p> Red Wines </p>
         </Link>
         <Link
-          to="/shop:whites"
+          to="/shop/white"
           style={{ textDecoration: "none", color: "black" }}
         >
           <p> White Wines </p>
         </Link>
         <Link
-          to="/shop:rose"
+          to="/shop/rose"
           style={{ textDecoration: "none", color: "black" }}
         >
           <p> Rose wines </p>
         </Link>
         <Link
-          to="/shop:sparkling"
+          to="/shop/sparkling"
           style={{ textDecoration: "none", color: "black" }}
         >
           <p> Sparkling wines </p>

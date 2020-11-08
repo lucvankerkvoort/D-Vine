@@ -7,6 +7,8 @@ import logoGif from "./Logo.gif";
 import search from "./search.png";
 import cart from "./cart.png";
 import wine_placeholder from "./wine_placeholder.png";
+import starFilled from "./star-filled.png";
+import starEmpty from "./star-empty.png";
 
 export default {
   Logo,
@@ -18,4 +20,6 @@ export default {
   search,
   cart,
   wine_placeholder,
+  starFilled,
+  starEmpty,
 };

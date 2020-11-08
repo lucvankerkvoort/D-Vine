@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { store } from "../Services/Store";
-import Gallery from "./gallery";
 import images from "../Images/images";
 import emailjs from "emailjs-com";
 
 const Specification = (props) => {
   const [email, setEmail] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -42,9 +42,9 @@ const Specification = (props) => {
   if (!userData.state.current) {
     userData.state.current = JSON.parse(localStorage.getItem("current"));
   }
-  const { pics, title, description, price } = userData.state.current;
+  const { pics, title, description, starArray, star } = userData.state.current;
 
-  console.log(userData.state.current);
+  console.log("current Data", userData.state.current);
   return (
     <div className="specification">
       <div className="title-spec">
@@ -56,32 +56,71 @@ const Specification = (props) => {
           className="back-to-shopping"
           onClick={() => goBack()}
         />
-        <h1>{title}</h1>
       </div>
       <div className="product-spec">
         <div className="picture-spec">
-          <Gallery picture={pics} />
+          <img src={pics} alt="..." />
         </div>
         <div className="detail-spec">
-          <p>Omschrijving: {description}</p>
-          <p>Prijs: {price},-</p>
-          <form className="sending-inquiry" onSubmit={handleEmail}>
+          <h1>{title}</h1>
+          <p> {description}</p>
+          <div>
+            {star} stars
+            {starArray.map((star) => (
+              <img src={star} alt="stars" height="40px" />
+            ))}
+          </div>
+          <form>
             <input
-              name="email"
-              type="email"
-              placeholder="E-mail adres"
-              onChange={(e) => setEmail(e.target.value)}
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
             />
-            <input name="title" type="text" value={`Aangaande ${title}`} />
-            <textarea
-              name="message"
-              type="text"
-              placeholder="Type hier je bericht"
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <button>Verzenden</button>
-            <p className="send">{success}</p>
+
+            <button type="submit">Add To Basket</button>
           </form>
+          <table>
+            <tr>
+              <td>Classification:</td>
+              <td>Test</td>
+            </tr>
+            <tr>
+              <td>Type:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Brand:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Vintage:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Country:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Region:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Volume:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Condition:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Label:</td>
+              <td>test</td>
+            </tr>
+            <tr>
+              <td>Stock:</td>
+              <td>test</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

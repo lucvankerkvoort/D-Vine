@@ -7,5 +7,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 80vh;
+  width: 80%;
+  padding: 50px 0px;
+  margin: auto;
+  min-height: fit-content;
+  height: 120vh;
 }
