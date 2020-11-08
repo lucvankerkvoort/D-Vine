@@ -10,46 +10,28 @@
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
 }
-.jumbotron-content {
-  top: 210px;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 1px 1px black;
-  width: 100%;
-  z-index: 1;
-  p {
-    max-width: 800px;
-    text-align: center;
-    height: 100px;
-    // border: 2px solid black;
-    word-wrap: break-word;
-    white-space: wrap;
 
-    color: white;
-    font-family: "Kalam";
-  }
-  h1 {
-    color: white;
-    font-family: "Kalam";
-  }
-}
 .jumbotron {
-  height: 400px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   position: relative;
-  .layer {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
+  background: none;
+  width: 100%;
+  .jumbotron-content {
+    color: white;
+    z-index: 10;
+  }
+  .jumbotron-layer {
     width: 100%;
+    background: rgba(0, 0, 0, 0.5);
     height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
   }
 }
-
 @media only screen and (min-width: 600px) {
   .jumbotron-content {
     top: 250px;

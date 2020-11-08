@@ -27,17 +27,26 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-items">
-        <Link to="/reds" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/shop:reds"
+          style={{ textDecoration: "none", color: "black" }}
+        >
           <p> Red Wines </p>
         </Link>
-        <Link to="/whites" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/shop:whites"
+          style={{ textDecoration: "none", color: "black" }}
+        >
           <p> White Wines </p>
         </Link>
-        <Link to="/rose" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/shop:rose"
+          style={{ textDecoration: "none", color: "black" }}
+        >
           <p> Rose wines </p>
         </Link>
         <Link
-          to="/sparkling"
+          to="/shop:sparkling"
           style={{ textDecoration: "none", color: "black" }}
         >
           <p> Sparkling wines </p>
@@ -45,7 +54,7 @@ const Navbar = () => {
         <Link to="/other" style={{ textDecoration: "none", color: "black" }}>
           <p> Other </p>
         </Link>
-        <Link to="/other" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/news" style={{ textDecoration: "none", color: "black" }}>
           <p> News </p>
         </Link>
       </div>

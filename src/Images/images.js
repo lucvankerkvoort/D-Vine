@@ -2,7 +2,7 @@ import Logo from "./Logo.png";
 import instagram from "./instagram.png";
 import facebook from "./facebook.png";
 import leftArrow from "./left-arrow.png";
-import jumbotronBackground from "./IMG-20200720-WA0009.jpg";
+import jumbotronBackground from "./wine_placeholder.png";
 import logoGif from "./Logo.gif";
 import search from "./search.png";
 import cart from "./cart.png";
