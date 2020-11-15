@@ -4,6 +4,7 @@ import { HashRouter, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar/navbar";
 import Home from "./Pages/home";
 import images from "./Images/images";
+import Cart from "./Pages/cart";
 import Collection from "./Pages/collection";
 import Contact from "./Pages/contact";
 import Shop from "./Pages/shop";
@@ -92,6 +93,10 @@ const App = () => {
         <Route
           path="/collection"
           render={(props) => <Collection {...props} />}
+        />
+        <Route
+          path="/cart"
+          render={(props) => <Cart fakeData={fakeData} {...props} />}
         />
         <Route path="/contact" component={Contact} />
         <Route

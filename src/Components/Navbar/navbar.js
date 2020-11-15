@@ -22,7 +22,9 @@ const Navbar = () => {
         <div>
           <div className="cart">
             <img src={image.cart} alt=".." />
-            <p>Cart</p>
+            <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
+              <p>Cart</p>
+            </Link>
           </div>
           <div className="search">
             <img src={image.search} alt=".." width="20px" />
