@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/navbar";
 import Home from "./Pages/home";
 import images from "./Images/images";
 import Cart from "./Pages/cart";
+import NewsPage from "./Pages/news";
 import Collection from "./Pages/collection";
 import Contact from "./Pages/contact";
 import Shop from "./Pages/shop";
@@ -35,50 +36,58 @@ const App = () => {
     {
       images: images.wine_placeholder,
       type: "red",
-      title: "Red",
-      price: "15",
+      title: "Title",
+      price: 15,
       description: "Beautiful Red Wine",
       star: 4.0,
     },
     {
-      title: "Red",
+      title: "Title",
       type: "red",
       images: images.wine_placeholder,
-      price: "15",
+      price: 15,
       description: "Beautiful Red Wine",
       star: 3.7,
     },
     {
-      title: "White",
+      title: "Title",
       type: "white",
       images: images.wine_placeholder,
-      price: "45",
+      price: 45,
       description: "nice white wine",
       star: 2.5,
     },
     {
-      title: "White",
+      title: "Title",
       type: "white",
       images: images.wine_placeholder,
-      price: "45",
+      price: 45,
       description: "nice white wine",
       star: 2.5,
     },
     {
-      title: "White",
+      title: "Title",
       type: "white",
       images: images.wine_placeholder,
-      price: "45",
+      price: 45,
       description: "nice white wine",
       star: 2.5,
     },
     {
-      title: "White",
+      title: "Title",
       type: "white",
       images: images.wine_placeholder,
-      price: "45",
+      price: 45,
       description: "nice white wine",
       star: 2.5,
+    },
+    {
+      title: "Title",
+      type: "other",
+      images: images.wine_placeholder,
+      price: 0,
+      description: "other",
+      star: 4,
     },
   ];
   return (
@@ -103,6 +112,7 @@ const App = () => {
           path="/shop/:type"
           render={(props) => <Shop fakeData={fakeData} {...props} />}
         />
+        <Route path="/news" render={(props) => <NewsPage {...props} />} />
         <Route path="/spec" render={(props) => <Specification {...props} />} />
         <Footer />
       </HashRouter>

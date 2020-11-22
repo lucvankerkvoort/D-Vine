@@ -4,7 +4,7 @@
   // align-items: center;
   // justify-content: space-evenly;
   flex-wrap: wrap;
-  margin: 50px 50px;
+  margin: 50px 25px;
   #back-to-home {
     cursor: pointer;
   }
@@ -13,7 +13,7 @@
 @media only screen and (min-width: 600px) {
   .shop {
     flex-direction: row;
-    // justify-content: space-evenly;
+    justify-content: space-evenly;
   }
 }
 

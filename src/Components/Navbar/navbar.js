@@ -58,7 +58,10 @@ const Navbar = () => {
         >
           <p> Sparkling wines </p>
         </Link>
-        <Link to="/other" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/shop/other"
+          style={{ textDecoration: "none", color: "black" }}
+        >
           <p> Other </p>
         </Link>
         <Link to="/news" style={{ textDecoration: "none", color: "black" }}>

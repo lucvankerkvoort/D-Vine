@@ -25,7 +25,7 @@ const Shop = (props) => {
   }, [props.location]);
   const { fakeData } = props;
 
-  console.log(type);
+  console.log("type", type);
   console.log(props);
   return (
     <>
