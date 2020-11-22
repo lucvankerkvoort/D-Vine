@@ -6,10 +6,11 @@
 .home {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
   width: 80%;
   padding: 50px 0px;
   margin: auto;
-  min-height: fit-content;
-  height: 120vh;
+  // min-height: fit-content;
+  // height: 520vh;
 }

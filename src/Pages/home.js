@@ -6,9 +6,10 @@ import images from "../Images/images";
 const Home = ({ collections }) => {
   return (
     <div className="home">
+      <h6>Good D-Vine</h6>
       <Jumbotron
-        title="Good D-Vine"
-        text="test."
+        title="This months offers"
+        text="Get 5 bottles + 1 free"
         backgroundPicture={images.jumbotronBackground}
       />
       <News />
