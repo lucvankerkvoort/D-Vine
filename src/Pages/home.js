@@ -1,7 +1,8 @@
 import React from "react";
 import Jumbotron from "../Components/Jumbotron/jumbotron";
+import ArticlePreview from "../Components/News/articlePreview";
 import News from "../Components/News/news";
-import images from "../Images/images";
+import Images from "../Images/images";
 
 const Home = ({ collections }) => {
   return (
@@ -10,9 +11,16 @@ const Home = ({ collections }) => {
       <Jumbotron
         title="This months offers"
         text="Get 5 bottles + 1 free"
-        backgroundPicture={images.jumbotronBackground}
+        backgroundPicture={Images.jumbotronBackground}
       />
-      <News />
+      <News>
+        <ArticlePreview
+          title="Article Title"
+          tagline="Lorem ipsum dolor sit amet"
+          img={Images.wine_placeholder}
+          id="1"
+        />
+      </News>
     </div>
   );
 };

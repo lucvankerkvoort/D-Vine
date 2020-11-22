@@ -20,12 +20,12 @@ const Navbar = () => {
           </Link>
         </div>
         <div>
-          <div className="cart">
-            <img src={image.cart} alt=".." />
-            <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
+          <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
+            <div className="cart">
+              <img src={image.cart} alt=".." />
               <p>Cart</p>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <div className="search">
             <img src={image.search} alt=".." width="20px" />
             <input
