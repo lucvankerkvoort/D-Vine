@@ -33,20 +33,6 @@ const Footer = () => {
 
           <a href>Privacy Statement</a>
         </div>
-        <div className="footer-section">
-          <h4>Shop</h4>
-          <p>
-            Mon 13:00 - 18:00
-            <br />
-            Tue - Fri 09:30 - 18:00
-            <br />
-            Sat 09:30 - 17:00
-            <br />
-            Closed on Sun
-            <br />
-            T: +31 (0)35 768 0310
-          </p>
-        </div>
       </div>
 
       <div className="misc">
