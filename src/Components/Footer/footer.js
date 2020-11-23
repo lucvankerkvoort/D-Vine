@@ -17,8 +17,11 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Contact and Customer Service</h4>
           <p>
-            Spiegelstraat 38C <br /> 1405 HX Bussum <br /> The Netherlands{" "}
-            <br /> T: +31 (0)35 678 0330 <br /> E: contactbow@bestofwines.com
+            De Kwakel
+            <br /> 1424 AR
+            <br /> Gerberalaan 53 The Netherlands
+            <br /> T: +31(0)644289213
+            <br /> E: info@D-vinewines.com
           </p>
         </div>
         <div className="footer-section">
@@ -36,7 +39,7 @@ const Footer = () => {
       </div>
 
       <div className="misc">
-        <p>© 2020, Kastjes Fabriek created by Luc van Kerkvoort</p>
+        <p>© 2020, D-Vine Wine created by Luc van Kerkvoort</p>
       </div>
     </div>
   );

@@ -13,9 +13,13 @@
     display: flex;
     // border: 2px solid black;
     width: 100%;
-    height: 150px;
-    padding: 20px;
+    // height: 200px;
+    // padding: 20px;
     justify-content: space-between;
+    h6 {
+      font-size: 36px;
+      color: white;
+    }
     .logo {
       display: flex;
       justify-content: center;
@@ -81,6 +85,9 @@
     color: white;
     border-top: 5px solid white;
     // border: 2px solid black;
+    p {
+      color: white;
+    }
   }
 }
 @media only screen and (min-width: 600px) {

@@ -19,6 +19,7 @@ const Navbar = () => {
             <img src={image.Logo} alt="logo" height="150px" />
           </Link>
         </div>
+        <h6>Good D-Vine</h6>
         <div>
           <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
             <div className="cart">
