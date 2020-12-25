@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import CartItem from "../Components/CartItem/cartItem";
+import { StripeContext } from "../Services/Stripe";
 
 const Cart = (props) => {
   const { fakeData } = props;
+  useEffect(() => {
+    fakeData.map((item) => {
+      setPayment({ name: item.title, amount: item.price, quantity: 1 });
+    });
+  }, []);
+  const cart = useContext(StripeContext);
+  console.log("cart", cart);
+  const { setPayment } = useContext(StripeContext);
+  console.log("setPayment", setPayment);
   const totalPrice = () => {
     let total = 0;
 

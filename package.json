@@ -18,7 +18,8 @@
     "react-responsive-carousel": "^3.2.9",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "stripe": "^8.129.0"
   },
   "scripts": {
     "predeploy": "npm run build",

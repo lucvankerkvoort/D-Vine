@@ -14,6 +14,8 @@ import Specification from "./Pages/specification";
 import "./Styles/import.scss";
 import { store } from "./Services/Store";
 import { db } from "./Firebase/Firebase";
+import StripeReducer from "./Services/StripeReducer";
+import { StripeProvider } from "./Services/Stripe";
 
 const App = () => {
   const [collections, setCollections] = useState("");
@@ -105,7 +107,11 @@ const App = () => {
         />
         <Route
           path="/cart"
-          render={(props) => <Cart fakeData={fakeData} {...props} />}
+          render={(props) => (
+            <StripeProvider>
+              <Cart fakeData={fakeData} {...props} />
+            </StripeProvider>
+          )}
         />
         <Route path="/contact" component={Contact} />
         <Route
