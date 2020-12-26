@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Items from "../Components/Items/item";
 import Title from "../Components/Jumbotron/title";
 import images from "../Images/images";
-import { store } from "../Services/Store";
+// import { store } from "../Services/Store";
 
 const Shop = (props) => {
   const [wines, setWines] = useState([]);
@@ -22,8 +22,8 @@ const Shop = (props) => {
     let wineFilter = props.fakeData.filter((wine) => wine.type === type);
     console.log("wineFilter", wineFilter);
     setWines(wineFilter);
-  }, [props.location]);
-  const { fakeData } = props;
+  }, [props.fakeData, props.location, type]);
+  // const { fakeData } = props;
 
   console.log("type", type);
   console.log(props);

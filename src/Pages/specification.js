@@ -1,41 +1,41 @@
 import React, { useContext, useState } from "react";
 import { store } from "../Services/Store";
 import images from "../Images/images";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 
 const Specification = (props) => {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState("");
+  // const [message, setMessage] = useState("");
+  // const [success, setSuccess] = useState("");
 
-  const handleEmail = (e) => {
-    e.preventDefault();
+  // const handleEmail = (e) => {
+  //   e.preventDefault();
 
-    const templateParams = {
-      from_name: ` ${title} (${email})`,
-      to_name: "Corinda",
-      message_html: message,
-    };
-    emailjs
-      .send(
-        "kastjesfabriek",
-        "template_w911gCXB",
-        templateParams,
-        "user_rpcRGHi1Y0p1xl1IdxtTc"
-      )
-      .then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        function (err) {
-          console.log("Your message was not able to be sent", err);
-        }
-      );
-    setEmail("");
-    setMessage("");
-    setSuccess("Verstuurt");
-  };
+  //   const templateParams = {
+  //     from_name: ` ${title} (${email})`,
+  //     to_name: "Corinda",
+  //     message_html: message,
+  //   };
+  //   emailjs
+  //     .send(
+  //       "kastjesfabriek",
+  //       "template_w911gCXB",
+  //       templateParams,
+  //       "user_rpcRGHi1Y0p1xl1IdxtTc"
+  //     )
+  //     .then(
+  //       function (response) {
+  //         console.log("SUCCESS!", response.status, response.text);
+  //       },
+  //       function (err) {
+  //         console.log("Your message was not able to be sent", err);
+  //       }
+  //     );
+  //   setEmail("");
+  //   setMessage("");
+  //   // setSuccess("Verstuurt");
+  // };
   const goBack = props.history.goBack;
   const userData = useContext(store);
 
