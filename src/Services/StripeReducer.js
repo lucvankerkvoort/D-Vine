@@ -11,7 +11,6 @@ const StripeReducer = (state, action) => {
         },
         quantity: action.payload.quantity,
       };
-      console.log([...state.line_items, item]);
       return {
         ...state,
         line_items: [...state.line_items, item],

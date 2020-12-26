@@ -1,21 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
-import { store } from "../../Services/Store";
-import { Link } from "react-router-dom";
-import images from "../../Images/images";
-import Cart from "../../Pages/cart";
+import React from "react";
+// import { store } from "../../Services/Store";
+// import { Link } from "react-router-dom";
+// import images from "../../Images/images";
+// import Cart from "../../Pages/cart";
 
 const CartItem = ({ title, price, pics, star, description }) => {
-  const [starArray, setStarArray] = useState([]);
-  const userData = useContext(store);
-  const { dispatch } = userData;
-  const props = {
-    title,
-    price,
-    pics,
-    description,
-    starArray,
-    star,
-  };
+  // const [starArray, setStarArray] = useState([]);
+  // const userData = useContext(store);
+  // const { dispatch } = userData;
+  // const props = {
+  //   title,
+  //   price,
+  //   pics,
+  //   description,
+  //   star,
+  // };
   return (
     <div className="cart-item">
       <div className="container">

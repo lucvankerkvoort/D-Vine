@@ -29,7 +29,7 @@ const Items = ({ title, price, pics, star, description }) => {
     }
 
     setStarArray(starArray);
-  }, []);
+  }, [star]);
   return (
     <div className="item">
       <Link

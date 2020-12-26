@@ -2,7 +2,7 @@ import React from "react";
 const ArticlePreview = ({ title, tagline, img, id }) => {
   return (
     <div className="article-preview">
-      <img src={img} height="200px" />
+      <img src={img} height="200px" alt="..." />
       <div className="article-preview-content">
         <h2>{title}</h2>
         <p>{tagline}</p>

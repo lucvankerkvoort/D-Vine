@@ -4,14 +4,18 @@ import { StripeContext } from "../Services/Stripe";
 
 const Cart = (props) => {
   const { fakeData } = props;
+  const { setPayment } = useContext(StripeContext);
   useEffect(() => {
     fakeData.map((item) => {
-      setPayment({ name: item.title, amount: item.price, quantity: 1 });
+      return setPayment({
+        name: item.title,
+        amount: item.price * 100,
+        quantity: 1,
+      });
     });
-  }, []);
+  }, [fakeData, setPayment]);
   const cart = useContext(StripeContext);
   console.log("cart", cart);
-  const { setPayment } = useContext(StripeContext);
   console.log("setPayment", setPayment);
   const totalPrice = () => {
     let total = 0;

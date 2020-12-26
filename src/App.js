@@ -14,7 +14,6 @@ import Specification from "./Pages/specification";
 import "./Styles/import.scss";
 import { store } from "./Services/Store";
 import { db } from "./Firebase/Firebase";
-import StripeReducer from "./Services/StripeReducer";
 import { StripeProvider } from "./Services/Stripe";
 
 const App = () => {

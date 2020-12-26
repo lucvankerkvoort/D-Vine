@@ -1,6 +1,6 @@
 import React from "react";
-import Article from "./article";
-import Images from "../../Images/images";
+// import Article from "./article";
+// import Images from "../../Images/images";
 
 const News = (props) => {
   console.log(props.children);
