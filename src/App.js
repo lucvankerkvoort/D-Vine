@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar/navbar";
 import Home from "./Pages/home";
 import images from "./Images/images";
@@ -15,6 +15,14 @@ import "./Styles/import.scss";
 import { store } from "./Services/Store";
 import { db } from "./Firebase/Firebase";
 import { StripeProvider } from "./Services/Stripe";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckOut from "./Pages/CheckOut";
+import CheckOutComplete from "./Pages/CheckOutComplete";
+
+
+// const promise = loadStripe('pk_test_51IDiTLEym2Zi7sBu5TgeEbrR32H3wKrgUIeGS39ABFdjvx3sJ5ZIW8OrnHRIPMXmFGmkNfF4c7TrzDCRFqOQIWkq00e9tdsNEe');
+const promise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
 const App = () => {
   const [collections, setCollections] = useState("");
@@ -93,34 +101,44 @@ const App = () => {
   ];
   return (
     <div className="App">
-      <HashRouter basename="/">
+      <Router>
         <Navbar />
-        <Route
-          exact
-          path="/"
-          render={() => <Home collections={collections} />}
-        />
-        <Route
-          path="/collection"
-          render={(props) => <Collection {...props} />}
-        />
-        <Route
-          path="/cart"
-          render={(props) => (
-            <StripeProvider>
-              <Cart fakeData={fakeData} {...props} />
-            </StripeProvider>
-          )}
-        />
-        <Route path="/contact" component={Contact} />
-        <Route
-          path="/shop/:type"
-          render={(props) => <Shop fakeData={fakeData} {...props} />}
-        />
-        <Route path="/news" render={(props) => <NewsPage {...props} />} />
-        <Route path="/spec" render={(props) => <Specification {...props} />} />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => <Home collections={collections} />}
+          />
+          <Route
+            path="/collection"
+            render={(props) => <Collection {...props} />}
+          />
+          <Route
+            path="/cart"
+            render={(props) => (
+              <StripeProvider>
+                <Cart fakeData={fakeData} {...props} />
+              </StripeProvider>
+            )}
+          />
+          <Route path="/contact" component={Contact} />
+          <Route path="/checkout">
+            <CheckOut fakeData={fakeData} />
+          </Route>
+          <Route path="/complete">
+            <Elements stripe={promise}>
+              <CheckOutComplete />
+            </Elements>
+          </Route>
+          <Route
+            path="/shop/:type"
+            render={(props) => <Shop fakeData={fakeData} {...props} />}
+          />
+          <Route path="/news" render={(props) => <NewsPage {...props} />} />
+          <Route path="/spec" render={(props) => <Specification {...props} />} />
+        </Switch>
         <Footer />
-      </HashRouter>
+      </Router>
     </div>
   );
 };

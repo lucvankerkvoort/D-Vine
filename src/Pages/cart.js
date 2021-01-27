@@ -1,10 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import CartItem from "../Components/CartItem/cartItem";
 import { StripeContext } from "../Services/Stripe";
+import {useHistory} from "react-router-dom";
 
-const Cart = (props) => {
-  const { fakeData } = props;
+const Cart = ( {fakeData }) => {
   const { setPayment } = useContext(StripeContext);
+  const history=useHistory();
+
   useEffect(() => {
     fakeData.map((item) => {
       return setPayment({
@@ -12,11 +14,12 @@ const Cart = (props) => {
         amount: item.price * 100,
         quantity: 1,
       });
-    });
-  }, [fakeData, setPayment]);
-  const cart = useContext(StripeContext);
-  console.log("cart", cart);
-  console.log("setPayment", setPayment);
+    });// eslint-disable-next-line
+  }, [fakeData]);
+
+  // const cart = useContext(StripeContext);
+  // console.log("cart", cart);
+  // console.log("setPayment", setPayment);
   const totalPrice = () => {
     let total = 0;
 
@@ -45,7 +48,7 @@ const Cart = (props) => {
 
       <div className="checkout">
         <p>Total: {totalPrice()},00 </p>
-        <button>Checkout</button>
+        <button onClick={()=>history.push("/checkout")}>Checkout</button>
       </div>
     </div>
   );
