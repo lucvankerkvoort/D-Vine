@@ -47,4 +47,30 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
+
+const calculateOrderAmount = items => {
+  let total=0;
+  items.map(item=>{
+    total+=item.price;
+  })
+  return total;
+};
+
+app.post('/secret', async (req, res) => {
+  try {
+    const { items } = req.body;
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: calculateOrderAmount(items)*100,
+      currency: 'eur',
+      payment_method_types: ['ideal'],
+    });
+
+    res.json({ client_secret: paymentIntent.client_secret });
+  }
+  catch {
+    console.log("error");
+  }
+});
+
+
 app.listen(4242, () => console.log(`Listening on port ${4242}!`));

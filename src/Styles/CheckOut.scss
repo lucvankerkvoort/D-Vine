@@ -1,0 +1,29 @@
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    align-items: center;
+    //width: 400px;
+      p {
+        align-self: flex-end;
+        padding: 10px;
+        border-bottom: 1px lightgrey solid;
+      }
+      div{
+          min-width: 400px;
+          padding: 5px;
+          margin: 10px;
+      }
+      .container{
+        border: 1px lightgrey solid;
+      }
+      button{
+          padding: 5px;
+          width: 100%;
+          background-color: lightseagreen;
+          border: none;
+          color: white;
+          margin-bottom: 5px;
+      }
+  }
+  
