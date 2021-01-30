@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { store } from "../../Services/Store";
 import { Link } from "react-router-dom";
 import images from "../../Images/images";
+import {useStateValue} from "../../Context/StateProvider";
 
-const Items = ({ title, price, pics, star, description }) => {
+const Items = ({ title, price, pics, star, description,id }) => {
+  const [{},dispatchfunc]=useStateValue();
   const [starArray, setStarArray] = useState([]);
   const userData = useContext(store);
   const { dispatch } = userData;
@@ -13,9 +15,25 @@ const Items = ({ title, price, pics, star, description }) => {
     pics,
     description,
     starArray,
+    id,
     star,
   };
 
+  const addToBasket=()=>{
+    dispatchfunc({
+      type: 'ADD_TO_BASKET',
+      item: {
+          title: title,
+          image: pics,
+          price: price,
+          starArray:starArray,
+          star:star,
+          description: description,
+          id: id,
+          quantity: 1
+      },
+  })
+  }
   useEffect(() => {
     let flatStarRate = Math.round(star);
     console.log(flatStarRate);
@@ -65,6 +83,9 @@ const Items = ({ title, price, pics, star, description }) => {
             <img src={item} alt="..." height="40px" />
           ))}
         </p>
+      </div>
+      <div>
+        <button onClick={addToBasket}>Add to cart</button>
       </div>
     </div>
   );
