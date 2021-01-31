@@ -3,8 +3,9 @@ import React from "react";
 // import { Link } from "react-router-dom";
 // import images from "../../Images/images";
 // import Cart from "../../Pages/cart";
+import {useStateValue} from "../../Context/StateProvider";
 
-const CartItem = ({ title, price, pics, star, description }) => {
+const CartItem = ({ title, price, pics, star, description,id,quantity }) => {
   // const [starArray, setStarArray] = useState([]);
   // const userData = useContext(store);
   // const { dispatch } = userData;
@@ -15,6 +16,14 @@ const CartItem = ({ title, price, pics, star, description }) => {
   //   description,
   //   star,
   // };
+  
+  const [{basket},dispatchfunc]=useStateValue();
+  const removeFromBasket=()=>{
+    dispatchfunc({
+        type: 'REMOVE_FROM_BASKET',
+        id: id
+    })
+  }
   return (
     <div className="cart-item">
       <div className="container">
@@ -35,9 +44,12 @@ const CartItem = ({ title, price, pics, star, description }) => {
           </div>
         </div>
         <div className="price">
-          <p>{price},00</p>
+          <p>{quantity} X {price},00 = {quantity*price}</p>
         </div>
       </div>
+
+          <button onClick={removeFromBasket}>Remove From Basket</button>
+
     </div>
   );
 };

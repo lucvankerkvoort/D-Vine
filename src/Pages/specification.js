@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import { store } from "../Services/Store";
 import images from "../Images/images";
+import {useStateValue} from "../Context/StateProvider";
+
 // import emailjs from "emailjs-com";
 
 const Specification = (props) => {
   // const [email, setEmail] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [{},dispatchfunc]=useStateValue();
+  
   // const [message, setMessage] = useState("");
   // const [success, setSuccess] = useState("");
 
@@ -42,7 +46,23 @@ const Specification = (props) => {
   if (!userData.state.current) {
     userData.state.current = JSON.parse(localStorage.getItem("current"));
   }
-  const { pics, title, description, starArray, star } = userData.state.current;
+  const { pics, title, description, starArray, star,id,price } = userData.state.current;
+
+  const addToCart=(e)=>{
+    dispatchfunc({
+      type: 'ADD_TO_BASKET',
+      item: {
+          title: title,
+          image: pics,
+          price: price,
+          starArray:starArray,
+          star:star,
+          description: description,
+          id: id,
+          quantity: quantity
+      },
+  })
+  }
 
   console.log("current Data", userData.state.current);
   return (
@@ -70,15 +90,15 @@ const Specification = (props) => {
               <img src={star} alt="stars" height="40px" />
             ))}
           </div>
-          <form>
+          <div>
             <input
               type="number"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
 
-            <button type="submit">Add To Basket</button>
-          </form>
+            <button onClick={addToCart}>Add To Basket</button>
+          </div>
           <table>
             <tr>
               <td>Classification:</td>

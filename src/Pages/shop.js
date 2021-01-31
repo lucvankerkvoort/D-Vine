@@ -49,6 +49,7 @@ const Shop = (props) => {
               pics={item.images}
               price={item.price}
               star={item.star}
+              id={i}
             />
           );
         })}
