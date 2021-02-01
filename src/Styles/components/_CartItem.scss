@@ -12,14 +12,13 @@
   .container {
     display: flex;
     border-radius: 24px;
-    width: 50%;
-    margin: 20px 0px;
+    justify-content: center;
     .cart-item-text {
-      margin: 0px 50px;
+      margin: 0px 25px;
     }
     .picture {
       div {
-        width: 200px;
+        width: 100px;
         height: 150px;
         // border: 2px solid black;
         background-size: contain;

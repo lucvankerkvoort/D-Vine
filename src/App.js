@@ -20,6 +20,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckOut from "./Pages/CheckOut";
 import CheckOutComplete from "./Pages/CheckOutComplete";
 import AgeVerification from "./Components/AgeVerification";
+import Header from "./Components/Navbar/Header";
 
 // const promise = loadStripe('pk_test_51IDiTLEym2Zi7sBu5TgeEbrR32H3wKrgUIeGS39ABFdjvx3sJ5ZIW8OrnHRIPMXmFGmkNfF4c7TrzDCRFqOQIWkq00e9tdsNEe');
 const promise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
@@ -103,7 +104,8 @@ const App = () => {
     <div className="App">
       <AgeVerification/>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
+        <Header/>
         <Switch>
           <Route
             exact
