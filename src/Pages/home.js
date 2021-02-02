@@ -4,6 +4,7 @@ import ArticlePreview from "../Components/News/articlePreview";
 import News from "../Components/News/news";
 import Images from "../Images/images";
 
+
 const Home = ({ collections }) => {
   return (
     <div className="home">
@@ -13,14 +14,15 @@ const Home = ({ collections }) => {
         text="Get 5 bottles + 1 free"
         backgroundPicture={Images.jumbotronBackground}
       />
-      <News>
+
+     
         <ArticlePreview
           title="Article Title"
           tagline="Lorem ipsum dolor sit amet"
-          img={Images.wine_placeholder}
+          backgroundPicture={Images.jumbotronBackground}
           id="1"
         />
-      </News>
+     
     </div>
   );
 };
