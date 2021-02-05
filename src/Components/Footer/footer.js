@@ -7,11 +7,11 @@ const Footer = () => {
       <div className="footer-links">
         <div className="footer-section">
           <h4>Keep in Touch</h4>
-          <a href>Facebook Wine</a>
+          <a href="#">Facebook Wine</a>
 
-          <a href>Facebook Whisky</a>
+          <a href="#">Facebook Whisky</a>
 
-          <a href>Instagram</a>
+          <a href="#">Instagram</a>
         </div>
 
         <div className="footer-section">
@@ -26,15 +26,15 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h4>Shopping Information</h4>
-          <a href>FAQ</a>
+          <a href="#">FAQ</a>
 
-          <a href>Delivery</a>
+          <a href="#">Delivery</a>
 
-          <a href>Service and Guarantee</a>
+          <a href="#">Service and Guarantee</a>
 
-          <a href>Conditions</a>
+          <a href="#">Conditions</a>
 
-          <a href>Privacy Statement</a>
+          <a href="#">Privacy Statement</a>
         </div>
       </div>
 

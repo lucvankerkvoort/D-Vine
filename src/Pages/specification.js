@@ -2,51 +2,31 @@ import React, { useContext, useState } from "react";
 import { store } from "../Services/Store";
 import images from "../Images/images";
 import {useStateValue} from "../Context/StateProvider";
-
+import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm';
 // import emailjs from "emailjs-com";
 
 const Specification = (props) => {
   // const [email, setEmail] = useState("");
   const [quantity, setQuantity] = useState(1);
+  // eslint-disable-next-line
   const [{},dispatchfunc]=useStateValue();
-  
-  // const [message, setMessage] = useState("");
-  // const [success, setSuccess] = useState("");
-
-  // const handleEmail = (e) => {
-  //   e.preventDefault();
-
-  //   const templateParams = {
-  //     from_name: ` ${title} (${email})`,
-  //     to_name: "Corinda",
-  //     message_html: message,
-  //   };
-  //   emailjs
-  //     .send(
-  //       "kastjesfabriek",
-  //       "template_w911gCXB",
-  //       templateParams,
-  //       "user_rpcRGHi1Y0p1xl1IdxtTc"
-  //     )
-  //     .then(
-  //       function (response) {
-  //         console.log("SUCCESS!", response.status, response.text);
-  //       },
-  //       function (err) {
-  //         console.log("Your message was not able to be sent", err);
-  //       }
-  //     );
-  //   setEmail("");
-  //   setMessage("");
-  //   // setSuccess("Verstuurt");
-  // };
   const goBack = props.history.goBack;
   const userData = useContext(store);
 
   if (!userData.state.current) {
     userData.state.current = JSON.parse(localStorage.getItem("current"));
   }
-  const { pics, title, description, starArray, star,id,price } = userData.state.current;
+  const { pics, title, description, starArray, star,id,price,classification
+    ,brand
+    ,vintage
+    ,country
+    ,region
+    ,volume
+    ,condition
+    ,label
+    ,stock
+     ,type } = userData.state.current;
 
   const addToCart=(e)=>{
     dispatchfunc({
@@ -83,7 +63,9 @@ const Specification = (props) => {
         </div>
         <div className="detail-spec">
           <h1>{title}</h1>
-          <p> {description}</p>
+         <div>
+         <ReactMarkdown plugins={[gfm]}>{description}</ReactMarkdown>
+         </div>
           <div>
             {star} stars
             {starArray.map((star) => (
@@ -102,43 +84,43 @@ const Specification = (props) => {
           <table>
             <tr>
               <td>Classification:</td>
-              <td>Test</td>
+              <td>{classification}</td>
             </tr>
             <tr>
               <td>Type:</td>
-              <td>test</td>
+              <td>{type}</td>
             </tr>
             <tr>
               <td>Brand:</td>
-              <td>test</td>
+              <td>{brand}</td>
             </tr>
             <tr>
               <td>Vintage:</td>
-              <td>test</td>
+              <td>{vintage}</td>
             </tr>
             <tr>
               <td>Country:</td>
-              <td>test</td>
+              <td>{country}</td>
             </tr>
             <tr>
               <td>Region:</td>
-              <td>test</td>
+              <td>{region}</td>
             </tr>
             <tr>
               <td>Volume:</td>
-              <td>test</td>
+              <td>{volume}</td>
             </tr>
             <tr>
               <td>Condition:</td>
-              <td>test</td>
+              <td>{condition}</td>
             </tr>
             <tr>
               <td>Label:</td>
-              <td>test</td>
+              <td>{label}</td>
             </tr>
             <tr>
               <td>Stock:</td>
-              <td>test</td>
+              <td>{stock}</td>
             </tr>
           </table>
         </div>

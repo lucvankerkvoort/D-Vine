@@ -1,22 +1,10 @@
 import React from "react";
-// import { store } from "../../Services/Store";
-// import { Link } from "react-router-dom";
-// import images from "../../Images/images";
-// import Cart from "../../Pages/cart";
+import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm';
 import {useStateValue} from "../../Context/StateProvider";
 
 const CartItem = ({ title, price, pics, star, description,id,quantity }) => {
-  // const [starArray, setStarArray] = useState([]);
-  // const userData = useContext(store);
-  // const { dispatch } = userData;
-  // const props = {
-  //   title,
-  //   price,
-  //   pics,
-  //   description,
-  //   star,
-  // };
-  
+
   const [{basket},dispatchfunc]=useStateValue();
   const removeFromBasket=()=>{
     dispatchfunc({
@@ -40,7 +28,7 @@ const CartItem = ({ title, price, pics, star, description,id,quantity }) => {
           </div>
 
           <div>
-            <p>{description}</p>
+          <ReactMarkdown plugins={[gfm]}>{description}</ReactMarkdown>
           </div>
           <div >
           <p>{quantity} X {price},00 = {quantity*price}</p>

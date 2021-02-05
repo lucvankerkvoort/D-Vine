@@ -3,8 +3,18 @@ import { store } from "../../Services/Store";
 import { Link } from "react-router-dom";
 import images from "../../Images/images";
 import {useStateValue} from "../../Context/StateProvider";
-
-const Items = ({ title, price, pics, star, description,id }) => {
+import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm';
+const Items = ({ title, price, pics, star, description,id,quantity,classification
+  ,brand
+  ,vintage
+  ,country
+  ,region
+  ,volume
+  ,condition
+  ,label
+  ,stock
+   ,type }) => {
   const [{},dispatchfunc]=useStateValue();
   const [starArray, setStarArray] = useState([]);
   const userData = useContext(store);
@@ -16,7 +26,16 @@ const Items = ({ title, price, pics, star, description,id }) => {
     description,
     starArray,
     id,
-    star,
+    star,quantity,classification
+    ,brand
+    ,vintage
+    ,country
+    ,region
+    ,volume
+    ,condition
+    ,label
+    ,stock
+     ,type
   };
 
   const addToBasket=()=>{
@@ -74,8 +93,8 @@ const Items = ({ title, price, pics, star, description,id }) => {
         <p>{price},00</p>
       </div>
       <div>
-        <p>{description}</p>
-      </div>
+         <ReactMarkdown plugins={[gfm]}>{description}</ReactMarkdown>
+         </div>
       <div>
         <p>
           {star}

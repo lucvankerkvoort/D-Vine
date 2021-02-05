@@ -19,7 +19,7 @@ const Shop = (props) => {
   };
 
   useEffect(() => {
-    let wineFilter = props.fakeData.filter((wine) => wine.type === type);
+    let wineFilter = props.product.filter((wine) => wine.data.type === type);
     console.log("wineFilter", wineFilter);
     setWines(wineFilter);
   }, [props.fakeData, props.location, type]);
@@ -40,16 +40,28 @@ const Shop = (props) => {
       />
       <Title title={capitalize(type)} />
       <div className="shop">
-        {(wines || []).map((item, i) => {
+        {(wines || []).map(({data,id}) => {
+          console.log(data)
           return (
             <Items
-              key={i}
-              title={item.title}
-              description={item.description}
-              pics={item.images}
-              price={item.price}
-              star={item.star}
-              id={i}
+              key={id}
+              title={data.title}
+              description={data.description}
+              pics={data.images}
+              price={data.price}
+              star={data.rating}
+              classification={data.classification}
+              brand={data.brand}
+              vintage={data.vintage}
+              country={data.country}
+              region={data.region}
+              volume={data.volume}
+              condition={data.condition}
+              label={data.label}
+              stock={data.stock}
+              type={data.type}
+              quantity={data.quantity}
+              id={id}
             />
           );
         })}
