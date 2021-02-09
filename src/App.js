@@ -19,7 +19,7 @@ import CheckOut from "./Pages/CheckOut";
 import CheckOutComplete from "./Pages/CheckOutComplete";
 import AgeVerification from "./Components/AgeVerification";
 import Header from "./Components/Navbar/Header";
-
+import CustomerData from "./Pages/CustomerData";
 // const promise = loadStripe('pk_test_51IDiTLEym2Zi7sBu5TgeEbrR32H3wKrgUIeGS39ABFdjvx3sJ5ZIW8OrnHRIPMXmFGmkNfF4c7TrzDCRFqOQIWkq00e9tdsNEe');
 const promise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
@@ -139,6 +139,9 @@ const App = () => {
           <Route path="/contact" component={Contact} />
           <Route path="/checkout">
             <CheckOut />
+          </Route>
+          <Route path="/customerdata">
+            <CustomerData />
           </Route>
           <Route path="/complete">
             <Elements stripe={promise}>

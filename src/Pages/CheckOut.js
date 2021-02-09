@@ -18,7 +18,7 @@ const CheckOut = ({ fakeData }) => {
             <div className="container">
                 <p>Amount to be Paid: {getBasketTotal(basket)},00 </p>
                 <Elements stripe={stripePromise}>
-                    <CheckOutForm fakeData={fakeData} />
+                    <CheckOutForm basket={basket} />
                 </Elements>
                 <button onClick={() => history.push("/cart")}>Back</button>
             </div>

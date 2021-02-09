@@ -32,7 +32,7 @@ const Cart = ( {fakeData }) => {
         <p>Total: {getBasketTotal(basket)},00 </p>
         <button onClick={()=>{
           if(getBasketTotal(basket)>0)
-          history.push("/checkout")
+          history.push("/customerdata")
           else
           alert("Cart is empty")
           }}>Checkout</button>

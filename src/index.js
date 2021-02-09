@@ -6,11 +6,13 @@ import * as serviceWorker from "./serviceWorker";
 import { StateProvider } from "./Services/Store";
 import {MyStateProvider} from "./Context/StateProvider";
 import reducer, {initialState} from "./reducer";
-
+import {CustomerDataProvider} from "./Context/CustomerDataProvider";
 ReactDOM.render(
   <StateProvider>
     <MyStateProvider initialState={initialState} reducer={reducer}> 
+    <CustomerDataProvider>
     <App />
+    </CustomerDataProvider>
     </MyStateProvider>
   </StateProvider>,
   document.getElementById("root")
