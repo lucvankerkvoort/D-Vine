@@ -7,11 +7,9 @@ const Footer = () => {
       <div className="footer-links">
         <div className="footer-section">
           <h4>Keep in Touch</h4>
-          <a href="#">Facebook Wine</a>
+          <a href="https://www.facebook.com/Gooddvine">Facebook Wine</a>
 
-          <a href="#">Facebook Whisky</a>
-
-          <a href="#">Instagram</a>
+          <a href="https://www.instagram.com/good_d_vine/">Instagram</a>
         </div>
 
         <div className="footer-section">
