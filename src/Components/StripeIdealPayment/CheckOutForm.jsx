@@ -5,7 +5,7 @@ import IdealBankSection from './IdealBankSection';
 import {useStateValue} from "../../Context/StateProvider";
 import {getBasketTotal} from "../../reducer";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({discount}) {
   const stripe = useStripe();
   const elements = useElements();
   const [processing,setProcessing]=useState(false);
@@ -13,6 +13,7 @@ export default function CheckoutForm() {
   const {customerData}=useContext(CustomerDataContext);
   const [{basket},dispatchfunc]=useStateValue();
 
+  console.log(discount)
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     window
@@ -21,7 +22,7 @@ export default function CheckoutForm() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({items: basket})
+        body: JSON.stringify({items: basket,discount: discount})
       })
       .then(res => {
         return res.json();
@@ -31,7 +32,7 @@ export default function CheckoutForm() {
       });
 
 
-  }, [basket]);
+  }, [basket,discount]);
 
 
   const handleSubmit = async (event) => {

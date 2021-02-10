@@ -48,19 +48,21 @@ app.get("*", (req, res) => {
 });
 
 
-const calculateOrderAmount = items => {
+const calculateOrderAmount = (items,discount) => {
   let total=0;
   items.map(item=>{
     total+=item.price;
   })
+  total=total-((discount/100)*total)
   return total;
 };
 
 app.post('/secret', async (req, res) => {
   try {
-    const { items } = req.body;
+    const { items,discount} = req.body;
+    console.log(discount);
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: calculateOrderAmount(items)*100,
+      amount: calculateOrderAmount(items,discount)*100,
       currency: 'eur',
       payment_method_types: ['ideal'],
     });

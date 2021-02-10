@@ -10,7 +10,7 @@ const Cart = ( {fakeData }) => {
   const history=useHistory();
   // eslint-disable-next-line
   const [{basket},dispatchfunc]=useStateValue();
-
+  console.log(basket)
   return (
     <div className="cart">
       {(basket || []).map((item) => {
