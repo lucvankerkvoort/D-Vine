@@ -6,7 +6,7 @@ const News = (props) => {
   console.log(props.children);
   return (
     <div className="news">
-      <h1>News</h1>
+      <h1 className="heading">News</h1>
       {props.children}
       <div className="news-layer"></div>
     </div>

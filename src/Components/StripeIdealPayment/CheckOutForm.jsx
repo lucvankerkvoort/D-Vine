@@ -1,14 +1,19 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import {useStripe, useElements, IdealBankElement} from '@stripe/react-stripe-js';
-
+import {CustomerDataContext} from '../../Context/CustomerDataProvider';
 import IdealBankSection from './IdealBankSection';
+import {useStateValue} from "../../Context/StateProvider";
+import {getBasketTotal} from "../../reducer";
 
-export default function CheckoutForm({fakeData}) {
+export default function CheckoutForm({discount}) {
   const stripe = useStripe();
   const elements = useElements();
   const [processing,setProcessing]=useState(false);
   const [clientSecret, setClientSecret] = useState('');
+  const {customerData}=useContext(CustomerDataContext);
+  const [{basket},dispatchfunc]=useStateValue();
 
+  console.log(discount)
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     window
@@ -17,7 +22,7 @@ export default function CheckoutForm({fakeData}) {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({items: fakeData})
+        body: JSON.stringify({items: basket,discount: discount})
       })
       .then(res => {
         return res.json();
@@ -27,7 +32,7 @@ export default function CheckoutForm({fakeData}) {
       });
 
 
-  }, [fakeData]);
+  }, [basket,discount]);
 
 
   const handleSubmit = async (event) => {
@@ -58,7 +63,7 @@ export default function CheckoutForm({fakeData}) {
           name: accountholderName.value,
         },
       },
-      return_url: 'http://localhost:3000/complete',
+      return_url: `http://localhost:3000/complete?email=${customerData.email}&address1=${customerData.address1}&address2=${customerData.address2}&city=${customerData.city}&zipcode=${customerData.zipcode}&name=${customerData.name}&amount=${getBasketTotal(basket)}`,
     });
 
     if (error) {
@@ -67,7 +72,7 @@ export default function CheckoutForm({fakeData}) {
     }
     setProcessing(false);
   };
-
+  
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">

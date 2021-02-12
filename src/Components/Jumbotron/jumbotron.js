@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
-const Jumbotron = ({ title, backgroundPicture, text }) => {
+const Jumbotron = ({ deals }) => {
   return (
     <div className="offer">
       {/* <img src={backgroundPicture} alt="..." />
@@ -8,46 +8,26 @@ const Jumbotron = ({ title, backgroundPicture, text }) => {
         <h4>{title}</h4>
         <p>{text}</p>
       </div> */}
-    <div className="carousel-container" >
-<Carousel>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={backgroundPicture}
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>{title}</h3>
-      <p>{text}</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={backgroundPicture}
-      alt="Third slide"
-    />
+      <div className="carousel-container" >
+        <Carousel>
+          {(deals || []).map(({ data, id }) => {
+            return (
+              <Carousel.Item key={id}>
+                <img
+                  className="d-block w-100"
+                  src={data.imageUrl}
+                  alt={data.title}
+                />
+                <Carousel.Caption>
+                  <h3>{data.title}</h3>
+                  <p>{data.description}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-    <Carousel.Caption>
-    <h3>{title}</h3>
-      <p>{text}</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={backgroundPicture}
-      alt="Third slide"
-    />
+            );
+          })}  </Carousel>
 
-    <Carousel.Caption>
-    <h3>{title}</h3>
-      <p>{text}</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
- 
-</div>
+      </div>
       <div className="jumbotron-layer"></div>
     </div>
   );

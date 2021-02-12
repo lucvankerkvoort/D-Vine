@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <div>
             <Navbar variant="dark" className="navbar" bg="dark" expand="lg">
-                <Link to="/" class="navbar-brand">
+                <Link to="/" className="navbar-brand">
                     <img src={image.Logo} alt="logo" height="80px" />
                     <span style={{ fontFamily: "Dancing Script", marginLeft: "10px" }}>Good-D-Vine</span>
                 </Link>
@@ -16,42 +16,42 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
 
-                        <Link to="/news" class="nav-link">
+                        <Link to="/news" className="nav-link">
                             News
                         </Link>
                         
                         <NavDropdown title="Wines" id="basic-nav-dropdown">
                             <Link
                                 to="/shop/red"
-                                class="dropdown-item"                            >
+                                className="dropdown-item"                            >
                                 Red Wines
                             </Link>
                             <Link
                                 to="/shop/white"
-                                class="dropdown-item"
+                                className="dropdown-item"
                             >
                                 White Wines
                             </Link>
                             <Link
                                 to="/shop/rose"
-                                class="dropdown-item"
+                                className="dropdown-item"
                             >
                                 Rose Wines
                             </Link>
                             <Link
                                 to="/shop/sparkling"
-                                class="dropdown-item"
+                                className="dropdown-item"
                             >
                                  Sparkling wines 
                             </Link>
                             <Link
                                 to="/shop/other"
-                                class="dropdown-item"
+                                className="dropdown-item"
                             >
                              Other 
                             </Link>
                         </NavDropdown>
-                        <Link to="/cart" class="nav-link">
+                        <Link to="/cart" className="nav-link">
                             Cart
                         </Link>
                     </Nav>
