@@ -31,7 +31,7 @@ const CartItem = ({ title, price, pics, star, description,id,quantity }) => {
           <ReactMarkdown plugins={[gfm]}>{description}</ReactMarkdown>
           </div>
           <div >
-          <p>{quantity} X {price},00 = {quantity*price}</p>
+          <p>{quantity} X {price.toFixed(2).replace(".", ",")} = {(quantity*price).toFixed(2).replace(".", ",")}</p>
         </div>
         </div>
       </div>
