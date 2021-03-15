@@ -13,10 +13,10 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Keep in Touch</h4>
           <div style={{ display: "flex",alignItems:"center" }}>
-            <a target="_blank" href="https://www.facebook.com/Gooddvine">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Gooddvine">
               <img style={imageStyle} src={facebook} alt="Facebook" />
             </a>
-            <a target="_blank" href="https://www.instagram.com/good_d_vine/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/good_d_vine/">
               <img style={{marginLeft:"5px",
   objectFit:"contain",width:"55px"}} src={instagram} alt="Instagram"/>
           </a>
