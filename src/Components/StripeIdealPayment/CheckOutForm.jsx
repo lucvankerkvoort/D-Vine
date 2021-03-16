@@ -13,9 +13,9 @@ export default function CheckoutForm({ discount }) {
   const { customerData } = useContext(CustomerDataContext);
   const [{ basket }] = useStateValue();
 
-  console.log(discount)
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
+
     window
       .fetch("/secret", {
         method: "POST",
@@ -30,7 +30,8 @@ export default function CheckoutForm({ discount }) {
       .then(data => {
         setClientSecret(data.client_secret);
       });
-
+    localStorage.setItem("basket", JSON.stringify(basket));
+    localStorage.setItem("discount", discount);
 
   }, [basket, discount]);
 

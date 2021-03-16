@@ -1,13 +1,10 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
+import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm';
 const Jumbotron = ({ deals }) => {
   return (
     <div className="offer">
-      {/* <img src={backgroundPicture} alt="..." />
-      <div id="jumbotron-text">
-        <h4>{title}</h4>
-        <p>{text}</p>
-      </div> */}
       <div className="carousel-container" >
         <Carousel>
           {(deals || []).map(({ data, id }) => {
@@ -20,7 +17,7 @@ const Jumbotron = ({ deals }) => {
                 />
                 <Carousel.Caption>
                   <h3>{data.title}</h3>
-                  <p>{data.description}</p>
+                  <ReactMarkdown plugins={[gfm]}>{data.description}</ReactMarkdown>
                 </Carousel.Caption>
               </Carousel.Item>
 
