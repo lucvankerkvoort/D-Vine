@@ -24,18 +24,18 @@ import CustomerData from "./Pages/CustomerData";
 const promise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
 const App = () => {
-  const [collections, setCollections] = useState("");
+  const [collections] = useState("");
   const userData = useContext(store);
-  const { dispatch } = userData;
-  const [product,setProduct]=useState([]);
+  const [product, setProduct] = useState([]);
 
-  useEffect(()=>{
-    db.collection('wine').onSnapshot(snapshot=>{
-        setProduct(snapshot.docs.map(doc=>({
-            id:doc.id,
-            data:doc.data()})));
+  useEffect(() => {
+    db.collection('wine').onSnapshot(snapshot => {
+      setProduct(snapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })));
     })
-},[])
+  }, [])
 
   console.log(product);
 
@@ -114,10 +114,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <AgeVerification/>
+      <AgeVerification />
       <Router>
         {/* <Navbar /> */}
-        <Header/>
+        <Header />
         <Switch>
           <Route
             exact
@@ -150,7 +150,7 @@ const App = () => {
           </Route>
           <Route
             path="/shop/:type"
-            render={(props) => <Shop  product={product} {...props} />}
+            render={(props) => <Shop product={product} {...props} />}
           />
           <Route path="/news" render={(props) => <NewsPage {...props} />} />
           <Route path="/spec" render={(props) => <Specification {...props} />} />

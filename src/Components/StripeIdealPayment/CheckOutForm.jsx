@@ -1,17 +1,17 @@
-import React,{useState,useEffect,useContext} from 'react';
-import {useStripe, useElements, IdealBankElement} from '@stripe/react-stripe-js';
-import {CustomerDataContext} from '../../Context/CustomerDataProvider';
+import React, { useState, useEffect, useContext } from 'react';
+import { useStripe, useElements, IdealBankElement } from '@stripe/react-stripe-js';
+import { CustomerDataContext } from '../../Context/CustomerDataProvider';
 import IdealBankSection from './IdealBankSection';
-import {useStateValue} from "../../Context/StateProvider";
-import {getBasketTotal} from "../../reducer";
+import { useStateValue } from "../../Context/StateProvider";
+import { getBasketTotal } from "../../reducer";
 
-export default function CheckoutForm({discount}) {
+export default function CheckoutForm({ discount }) {
   const stripe = useStripe();
   const elements = useElements();
-  const [processing,setProcessing]=useState(false);
+  const [processing, setProcessing] = useState(false);
   const [clientSecret, setClientSecret] = useState('');
-  const {customerData}=useContext(CustomerDataContext);
-  const [{basket},dispatchfunc]=useStateValue();
+  const { customerData } = useContext(CustomerDataContext);
+  const [{ basket }] = useStateValue();
 
   console.log(discount)
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function CheckoutForm({discount}) {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({items: basket,discount: discount})
+        body: JSON.stringify({ items: basket, discount: discount })
       })
       .then(res => {
         return res.json();
@@ -32,7 +32,7 @@ export default function CheckoutForm({discount}) {
       });
 
 
-  }, [basket,discount]);
+  }, [basket, discount]);
 
 
   const handleSubmit = async (event) => {
@@ -56,7 +56,7 @@ export default function CheckoutForm({discount}) {
 
     const accountholderName = event.target['accountholder-name'];
 
-    const {error} = await stripe.confirmIdealPayment(clientSecret, {
+    const { error } = await stripe.confirmIdealPayment(clientSecret, {
       payment_method: {
         ideal: idealBank,
         billing_details: {
@@ -72,7 +72,7 @@ export default function CheckoutForm({discount}) {
     }
     setProcessing(false);
   };
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
@@ -84,8 +84,8 @@ export default function CheckoutForm({discount}) {
       <div className="form-row">
         <IdealBankSection />
       </div>
-      <button type="submit" disabled={!stripe||processing}>
-        {processing?"Processing...":"Submit Payment"}
+      <button type="submit" disabled={!stripe || processing}>
+        {processing ? "Processing..." : "Submit Payment"}
       </button>
     </form>
   );

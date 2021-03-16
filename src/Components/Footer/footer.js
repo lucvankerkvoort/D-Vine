@@ -24,15 +24,15 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h4>Shopping Information</h4>
-          <a href="#">FAQ</a>
+          <button href="#">FAQ</button>
 
-          <a href="#">Delivery</a>
+          <button href="#">Delivery</button>
 
-          <a href="#">Service and Guarantee</a>
+          <button href="#">Service and Guarantee</button>
 
-          <a href="#">Conditions</a>
+          <button href="#">Conditions</button>
 
-          <a href="#">Privacy Statement</a>
+          <button href="#">Privacy Statement</button>
         </div>
       </div>
 

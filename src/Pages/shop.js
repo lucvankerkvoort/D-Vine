@@ -14,15 +14,16 @@ const Shop = (props) => {
   const { type } = useParams();
 
   const capitalize = (s) => {
-    if (typeof s !== "string") return "";
-    return s.charAt(0).toUpperCase() + s.slice(1);
+    if (typeof s !== "string") { return "" } else {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
   };
 
   useEffect(() => {
     let wineFilter = props.product.filter((wine) => wine.data.type === type);
     console.log("wineFilter", wineFilter);
     setWines(wineFilter);
-  }, [props.fakeData, props.location, type]);
+  }, [props.fakeData, props.location, type, props.product]);
   // const { fakeData } = props;
 
   console.log("type", type);
@@ -40,7 +41,7 @@ const Shop = (props) => {
       />
       <Title title={capitalize(type)} />
       <div className="shop">
-        {(wines || []).map(({data,id}) => {
+        {(wines || []).map(({ data, id }) => {
           console.log(data)
           return (
             <Items

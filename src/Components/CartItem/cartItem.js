@@ -1,15 +1,15 @@
 import React from "react";
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm';
-import {useStateValue} from "../../Context/StateProvider";
+import { useStateValue } from "../../Context/StateProvider";
 
-const CartItem = ({ title, price, pics, star, description,id,quantity }) => {
+const CartItem = ({ title, price, pics, star, description, id, quantity }) => {
 
-  const [{basket},dispatchfunc]=useStateValue();
-  const removeFromBasket=()=>{
+  const [dispatchfunc] = useStateValue();
+  const removeFromBasket = () => {
     dispatchfunc({
-        type: 'REMOVE_FROM_BASKET',
-        id: id
+      type: 'REMOVE_FROM_BASKET',
+      id: id
     })
   }
   return (
@@ -28,15 +28,15 @@ const CartItem = ({ title, price, pics, star, description,id,quantity }) => {
           </div>
 
           <div>
-          <ReactMarkdown plugins={[gfm]}>{description}</ReactMarkdown>
+            <ReactMarkdown plugins={[gfm]}>{description}</ReactMarkdown>
           </div>
           <div >
-          <p>{quantity} X {price},00 = {quantity*price}</p>
-        </div>
+            <p>{quantity} X {price},00 = {quantity * price}</p>
+          </div>
         </div>
       </div>
 
-          <button onClick={removeFromBasket}>Remove From Basket</button>
+      <button onClick={removeFromBasket}>Remove From Basket</button>
 
     </div>
   );
