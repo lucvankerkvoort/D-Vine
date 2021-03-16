@@ -33,7 +33,7 @@ const CheckOut = ({ fakeData }) => {
     return (
         <div className="checkout-container">
             <div className="container">
-                <p>Amount to be Paid: {basketTotal - ((discount / 100) * basketTotal)},00 </p>
+                <p>Amount to be Paid: {(basketTotal - ((discount / 100) * basketTotal)).toFixed(2).replace(".", ",")} </p>
                 <Elements stripe={stripePromise}>
                     <CheckOutForm discount={discount} basket={basket} />
                 </Elements>

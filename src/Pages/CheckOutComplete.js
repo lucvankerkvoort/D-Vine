@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import "../Styles/CheckOutComplete.scss";
 import emailjs from "emailjs-com";
+import easyinvoice from 'easyinvoice';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -27,7 +28,54 @@ const CheckOutComplete = () => {
   const [success, setSuccess] = useState(false);
   const [processing, setProcessing] = useState(true);
   const [error, setError] = useState('');
-
+  const [invoice, setInvoice] = useState('');
+  console.log(basket);
+  const [data, setData] = useState({
+    "documentTitle": "RECEIPT", //Defaults to INVOICE
+    "currency": "EURO",
+    "taxNotation": "vat", //or gst
+    "marginTop": 25,
+    "marginRight": 25,
+    "marginLeft": 25,
+    "marginBottom": 25,
+    "logo": "https://public.easyinvoice.cloud/img/logo_en_original.png", //or base64
+    //"logoExtension": "png", //only when logo is base64
+    "sender": {
+      "company": "D-Vine Wine",
+      "address": "De Kwakel",
+      "zip": "1234 AB",
+      "city": "Sampletown",
+      "country": "Netherland"
+      //"custom1": "custom value 1",
+      //"custom2": "custom value 2",
+      //"custom3": "custom value 3"
+    },
+    "client": {
+      "company": "Client Corp",
+      "address": address1,
+      "zip": zipcode,
+      "city": city,
+      "country": "Clientcountry"
+      //"custom1": "custom value 1",
+      //"custom2": "custom value 2",
+      //"custom3": "custom value 3"
+    },
+    "invoiceNumber": "2020.0001",
+    "invoiceDate": "05-01-2020",
+    "products": [{
+      "quantity": "2",
+      "description": "Test1",
+      "tax": 6,
+      "price": 33.87
+    },
+    {
+      "quantity": "4",
+      "description": "Test2",
+      "tax": 21,
+      "price": 10.45
+    }
+    ],
+  });
   useEffect(() => {
     if (stripe) {
       stripe.retrievePaymentIntent(payment_intent_client_secret).then(function (response) {
@@ -41,19 +89,28 @@ const CheckOutComplete = () => {
             city,
             zipcode,
             basket,
-            amount
+            amount,
+            content: invoice
           }
 
-          emailjs.send("service_32silhm", "template_myhtag9", templateParams, "user_ToyPyp9LOSNrhaPkBcvhM")
-            .then(function (response) {
-              console.log('SUCCESS!', response.status, response.text);
-              setSuccess(true);
-              setProcessing(false);
-            }, function (error) {
-              console.log('FAILED...', error);
-              setProcessing(false);
-              setError(response.paymentIntent.status);
-            });
+
+          const generateInvoice = async () => {
+            const result = await easyinvoice.createInvoice(data);
+            //easyinvoice.download('myInvoice.pdf', result.pdf);
+            setInvoice(result.pdf);
+          }
+          generateInvoice().then(() => {
+            emailjs.send("service_32silhm", "template_myhtag9", templateParams, "user_ToyPyp9LOSNrhaPkBcvhM")
+              .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                setSuccess(true);
+                setProcessing(false);
+              }, function (error) {
+                console.log('FAILED...', error);
+                setProcessing(false);
+                setError(response.paymentIntent.status);
+              });
+          })
 
 
         } else {

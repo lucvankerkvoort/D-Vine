@@ -29,7 +29,7 @@ const Cart = ( {fakeData }) => {
       })}
 
       <div className="checkout">
-        <p>Total: {getBasketTotal(basket)},00 </p>
+        <p>Total: {getBasketTotal(basket).toFixed(2).replace(".", ",")} </p>
         <button onClick={()=>{
           if(getBasketTotal(basket)>0)
           history.push("/customerdata")

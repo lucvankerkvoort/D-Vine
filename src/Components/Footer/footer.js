@@ -1,15 +1,26 @@
 import React from "react";
-// import Images from "../../Images/images";
+import instagram from "../../Images/instagram.png"
+import facebook from "../../Images/facebook.png"
 
+const imageStyle = {
+  marginLeft: "5px",
+  objectFit: "contain"
+}
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-links">
         <div className="footer-section">
           <h4>Keep in Touch</h4>
-          <a href="https://www.facebook.com/Gooddvine">Facebook Wine</a>
-
-          <a href="https://www.instagram.com/good_d_vine/">Instagram</a>
+          <div style={{ display: "flex",alignItems:"center" }}>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Gooddvine">
+              <img style={imageStyle} src={facebook} alt="Facebook" />
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/good_d_vine/">
+              <img style={{marginLeft:"5px",
+  objectFit:"contain",width:"55px"}} src={instagram} alt="Instagram"/>
+          </a>
+          </div>
         </div>
 
         <div className="footer-section">

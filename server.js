@@ -51,7 +51,7 @@ app.get("*", (req, res) => {
 const calculateOrderAmount = (items,discount) => {
   let total=0;
   items.map(item=>{
-    total+=item.price;
+    total+=(item.price*item.quantity);
   })
   total=total-((discount/100)*total)
   return total;
