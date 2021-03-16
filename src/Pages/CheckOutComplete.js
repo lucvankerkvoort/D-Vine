@@ -30,7 +30,7 @@ const CheckOutComplete = () => {
   const [error, setError] = useState('');
   const [invoice, setInvoice] = useState('');
   console.log(basket);
-  const [data, setData] = useState({
+  const [data] = useState({
     "documentTitle": "RECEIPT", //Defaults to INVOICE
     "currency": "EURO",
     "taxNotation": "vat", //or gst
