@@ -32,7 +32,7 @@
     "stripe": "^8.129.0",
     "yarn": "^1.22.10"
   },
-  "proxy": "http://localhost:4242",
+  "proxy": "https://fierce-thicket-06395.herokuapp.com/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
