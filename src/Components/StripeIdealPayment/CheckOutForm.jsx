@@ -20,6 +20,7 @@ export default function CheckoutForm({ discount }) {
       .fetch("https://fierce-thicket-06395.herokuapp.com/secret", {
         method: "POST",
         headers: {
+          "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ items: basket, discount: discount })
