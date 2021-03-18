@@ -17,7 +17,7 @@ export default function CheckoutForm({ discount }) {
     // Create PaymentIntent as soon as the page loads
 
     window
-      .fetch("/secret", {
+      .fetch("https://fierce-thicket-06395.herokuapp.com/secret", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
